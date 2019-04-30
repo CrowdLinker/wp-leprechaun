@@ -1,0 +1,15 @@
+{
+  "name": "leprechaun",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:CrowdLinker/wp-leprechaun.git",
+  "author": "Orest Hazda <orest@crowdlinker.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  },
+  "scripts": {
+    "dev": "parcel ./admin/js/leprechaun-admin.js --out-dir ./admin/dist",
+    "build": "parcel build ./admin/js/leprechaun-admin.js --out-dir ./admin/dist"
+  }
+}
