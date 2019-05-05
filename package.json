@@ -11,5 +11,8 @@
   "scripts": {
     "dev": "parcel ./admin/js/leprechaun-admin.js --out-dir ./admin/dist",
     "build": "parcel build ./admin/js/leprechaun-admin.js --out-dir ./admin/dist"
+  },
+  "dependencies": {
+    "fabric": "^2.7.0"
   }
 }
