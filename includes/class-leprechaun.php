@@ -122,6 +122,11 @@ class Leprechaun {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-leprechaun-public.php';
 
+		/**
+		 * Load helpers
+		 */
+		require_once plugin_dir_path( dirname(__FILE__) ) . 'includes/helpers.php';
+
 		$this->loader = new Leprechaun_Loader();
 
 	}
@@ -154,9 +159,15 @@ class Leprechaun {
 
 		$plugin_admin = new Leprechaun_Admin( $this->get_plugin_name(), $this->get_version() );
 
+		$this->loader->add_action( 'init', $plugin_admin, 'register_templates_post_type' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_menu_item' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'display_settings' );
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'canvas_box' );
+		$this->loader->add_action( 'save_post', $plugin_admin, 'save_canvas' );
 
+		//http://qnimate.com/wordpress-settings-api-a-comprehensive-developers-guide/
 	}
 
 	/**
